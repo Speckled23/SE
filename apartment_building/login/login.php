@@ -30,42 +30,68 @@
     require_once '../includes/header.php';
 
 ?>
-    <div class="login-container">
-        <form class="login-form" action="login.php" method="post">
-
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required tabindex="1">
-            <label for="password">Password</label>
-            <input id="password" type="password" class="form-control" name="password" placeholder="Password" required autocomplete="current-password" required tabindex="2">
-            <input class="button" type="submit" value="Login" name="submit" tabindex="3">
-            <?php
-                //Display the error message if there is any.
-                if(isset($error)){
-                    echo '<div><p class="error">'.$error.'</p></div>';
-                }
-            ?>
-        </form>
-    </div>
-<?php
+<body class="vh-100 gradient-custom">
+    <section>
+        <div class="fs-4">
+            <div class="cardd text-white">
+                <div class="p-4 text-center">
+                    <h3 class="fs-1 mb-5">Welcome!</h3>
+                    <form action="login.php" class="text-white" method="post">
+                        <div class="row justify-content-center align-items-center h-100">
+                            <div class="text-white">
+                            <div class="card-body">
+                                <input type="text" name="username" id="tran" class="text-white " placeholder="Username" required tabindex="1" />
+                            </div>
+                            <div class=" mb-4 card-body">
+                                <input type="password" name="password" id="tran" class="text-white " placeholder="Password" required autocomplete="current-password" required tabindex="2"/>
+                                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                           </div>
+                            <div class="fs-6 mb-4 mx-5 d-flex justify-content-start text-white">
+                                <label>
+                                    <input type="checkbox" name="remember" id="check"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="px-6 mb-1 btncol text-white width" value="Login" name="submit" tabindex="3">Login</button><br>
+                            <a href="" class="fs-6 text-dark no-underline text-white">Forgot Password?</a>
+                            <?php
+                                //Display the error message if there is any.
+                                if(isset($error)){
+                                    echo '<div><p class="error">'.$error.'</p></div>';
+                                }
+                                
+                            ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php
     require_once '../includes/footer.php';
-?>
+    ?>
+    <script>
+        const togglePassword = document
+            .querySelector('#togglePassword');
+  
+        const password = document.querySelector('#password');
+  
+        togglePassword.addEventListener('click', () => {
+  
+            // Toggle the type attribute using
+            // getAttribure() method
+            const type = password
+                .getAttribute('type') === 'password' ?
+                'text' : 'password';
 
-<script>
-    const togglePasswordEye = '<i class="fa fa-eye toggle-password-eye"></i>';
-const togglePasswordEyeSlash = '<i class="fa fa-eye-slash toggle-password-eye"></i>';
-
-$(togglePasswordEyeSlash).insertAfter('input[type=password]');
-$('input[type=password]').addClass('hidden-pass-input')
-
-$('body').on('click', '.toggle-password-eye', function (e) {
-    let password = $(this).prev('.hidden-pass-input');
-
-    if (password.attr('type') === 'password') {
-        password.attr('type', 'text');
-        $(this).addClass('fa-eye').removeClass('fa-eye-slash');
-    } else {
-        password.attr('type', 'password');
-        $(this).addClass('fa-eye-slash').removeClass('fa-eye');
-    }
-})
-</script>
+            password.setAttribute('type', type);
+  
+            // Toggle the eye and bi-eye icon
+            this.classList.toggle('fa-eye');
+        });
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
