@@ -18,6 +18,8 @@
 
     require_once '../includes/header.php';
     require_once '../includes/sidebar.php';
+
+
     //require_once '../includes/topnav.php';
 ?>
 
@@ -26,13 +28,18 @@
 
             <li>
                 <ul>
-                    <th>this part is for the pending ticket</th>
-                    <th>this part is for the numbe of tickets</th>
-                    <th>this part is for the tenants</th>
+                    <th>total tenants | </th>
+                    <th>total landlord | </th>
+                    <th>total property | </th>
+                    <th>total property | </th>
+                    <th>total property unit | </th>
                 </ul>
             </li>
+            <ol>
+                <div>total income</div>
+            </ol>
 
-            <div class = "calendar"> this part is for the calensar</div>
+            <div class = "calendar"> this part is for the calendar</div>
     </div>
 
 <?php

@@ -37,7 +37,7 @@
             </a>
         </li>
         <li>
-            <a href="../admin/leases.php" class="<?php echo $leases; ?>"title="#">
+            <a href="../lease/lease.php" class="<?php echo $lease; ?>"title="#">
 
                 <span class="links-name">Leases</span>
             </a>

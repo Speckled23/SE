@@ -1,28 +1,43 @@
 <?php
-    require_once '../classes/database.php';
-    $page_title = 'Login';
-
     //we start session since we need to use session values
     session_start();
-    //creating an array for list of users can login to the system
-    $conn=mysqli_connect("localhost","root","","apartment");
-     $error="";
-    if (isset($_POST['submit'])) {
-      //echo "<pre>";
-      //print_r($_POST);
-      $username=mysqli_real_escape_string($conn,$_POST['username']);
-      $password=mysqli_real_escape_string($conn,$_POST['password']);
-      $sql=mysqli_query($conn,"select * from user where username='$username' && password='$password'");
-      $num=mysqli_num_rows($sql);
-      if ($num>0) {
-           //echo "found";
-           $row=mysqli_fetch_assoc($sql);
-           $_SESSION['logged-in'] = $username;
-           $_SESSION['fullname']=$row['firstname'] . ' ' . $row['lastname'];
-           $_SESSION['type'] = $row['type'];
 
-            header('location: ../admin/dashboard.php');
-      }
+    //require_once '../tools/variables.php';
+    require_once '../classes/accounts.class.php';
+    $page_title = 'Apartment - Login';
+   // $faculty = 'active';
+
+    if(isset($_POST['username']) && isset($_POST['password'])){
+        $accounts = new Accounts;
+        //Sanitizing the inputs of the users. Mandatory to prevent injections!
+        $username = htmlentities($_POST['username']);
+        $password = htmlentities($_POST['password']);
+        //check if the username and password match in the database
+        if ($accounts->check($username, $password)){
+            $data = $accounts->check($username, $password);
+            $accounts->id = $data['id'];
+            $accounts->name = $data['name'];
+            $accounts->role = $data['role'];
+            $accounts->username = $data['username'];
+            $accounts->password = $data['password'];
+        }
+
+        if($username == $accounts->username && $password == $accounts->password){
+            //if match then save username, fullname and type as session to be reused somewhere else
+            $_SESSION['logged-in'] = $accounts->username;
+            $_SESSION['name'] = $accounts->name;
+            $_SESSION['role'] = $accounts->role;
+            //display the appropriate dashboard page for user
+            if($value['role'] == 'admin'){
+                header('location: ../admin/dashboard.php');
+            }
+            if($value['role'] == 'landlord'){
+                header('location: ../landlord/landlord.php');
+            }
+            else{
+                header('location: ../admin/dashboard.php');
+            }
+        }
         //set the error message if account is invalid
         $error = 'Invalid username/password. Try again.';
     }
@@ -49,23 +64,3 @@
 <?php
     require_once '../includes/footer.php';
 ?>
-
-<script>
-    const togglePasswordEye = '<i class="fa fa-eye toggle-password-eye"></i>';
-const togglePasswordEyeSlash = '<i class="fa fa-eye-slash toggle-password-eye"></i>';
-
-$(togglePasswordEyeSlash).insertAfter('input[type=password]');
-$('input[type=password]').addClass('hidden-pass-input')
-
-$('body').on('click', '.toggle-password-eye', function (e) {
-    let password = $(this).prev('.hidden-pass-input');
-
-    if (password.attr('type') === 'password') {
-        password.attr('type', 'text');
-        $(this).addClass('fa-eye').removeClass('fa-eye-slash');
-    } else {
-        password.attr('type', 'password');
-        $(this).addClass('fa-eye-slash').removeClass('fa-eye');
-    }
-})
-</script>
