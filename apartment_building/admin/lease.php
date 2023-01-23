@@ -13,7 +13,7 @@
     //if the above code is false then html below will be displayed
 
    // require_once '../tools/variables.php';
-    $page_title = 'Admin | Properties ';
+    $page_title = 'Admin | Leases ';
     $dashboard = 'active';
 
     require_once '../includes/header.php';
@@ -26,37 +26,37 @@
                 <thead>
                     <tr>
                        <th>#</th>
-                       <th>Property name</th>
-                       <th>Units</th>
-                       <th>Location</th>
-                       <th>Landlord</th>
+                       <th>Unit Name</th>
+                       <th>Type</th>
+                       <th>Rent</th>
+                       <th>Tenant Name</th>
                        <th>Action</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        require_once '../classes/tenants.class.php';
+                        require_once '../classes/leases.class.php';
 
-                        $tenants = new Tenants();
+                        $lease = new Leases();
                         //We will now fetch all the records in the array using loop
                         //use as a counter, not required but suggested for the table
                         $i = 1;
                         //loop for each record found in the array
-                        foreach ($tenants->show() as $value){ //start of loop
+                        foreach ($lease->show() as $value){ //start of loop
                     ?>
                         <tr>
                             <!-- always use echo to output PHP values -->
                             <td><?php echo $i ?></td>
-                            <td><?php echo $value['pname']?></td>
-                            <td><?php echo $value['units'] ?></td>
-                            <td><?php echo $value['location'] ?></td>
-                            <td><?php echo $value['landlord'] ?></td>
-                            <td><?php echo $value['action'] ?></td>
+                            <td><?php echo $value['p_unit_id']?></td>
+                            <td><?php echo $value['type'] ?></td>
+                            <td><?php echo $value['rent'] ?></td>
+                            <td><?php echo $value['tenant_name'] ?></td>
                                 <td>
                                     <div class="action">
-                                        <a href="#">View</a>
-                                        <a class="#">Edit</a>
-                                        <a class="#">Delete</a>
+                                        <a class= "action-view"href="#">View</a>
+                                        <a class="action-edit" href="#">Edit</a>
+                                        <a class="action-delete" href="#">Delete</a>
                                     </div>
                                 </td>
                             <?php

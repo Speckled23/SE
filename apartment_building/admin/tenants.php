@@ -31,36 +31,31 @@
                        <th>Contact Number</th>
                        <th>Leases</th>
                        <th>Action</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        require_once '../classes/program.class.php';
+                        require_once '../classes/tenants.class.php';
 
-                        $program = new Program();
+                        $tenants = new Tenants();
                         //We will now fetch all the records in the array using loop
                         //use as a counter, not required but suggested for the table
                         $i = 1;
                         //loop for each record found in the array
-                        foreach ($program->show() as $value){ //start of loop
+                        foreach ($tenants->show() as $value){ //start of loop
                     ?>
                         <tr>
                             <!-- always use echo to output PHP values -->
                             <td><?php echo $i ?></td>
-                            <td><?php echo $value['code']?></td>
-                            <td><?php echo $value['description'] ?></td>
-                            <td><?php echo $value['years'] ?></td>
-                            <td><?php echo $value['level'] ?></td>
-                            <td><?php echo $value['cet'] ?></td>
-                            <td><?php echo $value['status'] ?></td>
-                            <?php
-                                if($_SESSION['user_type'] == 'admin'){ 
-                            ?>
+                            <td><?php echo $value['name']?></td>
+                            <td><?php echo $value['email'] ?></td>
+                            <td><?php echo $value['contact_num'] ?></td>
+                            <td><?php echo $value['lease'] ?></td>
+                            <td><?php echo $value['action'] ?></td>
                                 <td>
                                     <div class="action">
-                                        <a class="action-edit" href="editprogram.php?id=<?php echo $value['id'] ?>">Edit</a>
-                                        <a class="action-delete" href="deleteprogram.php?id=<?php echo $value['id'] ?>">Delete</a>
+                                        <a class="#">Edit</a>
+                                        <a class="#">Delete</a>
                                     </div>
                                 </td>
                             <?php
@@ -70,7 +65,6 @@
                     <?php
                         $i++;
                     //end of loop
-                    }
                     ?>
                 </tbody>
             </table>

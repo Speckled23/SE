@@ -28,6 +28,25 @@ class Accounts{
         }
         return $data;
     }
+
+    function fetch($record_id){
+        $sql = "SELECT * FROM user WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function show(){
+        $sql = "SELECT * FROM user ORDER BY code ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }
 
 ?>

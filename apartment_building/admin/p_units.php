@@ -22,7 +22,54 @@
 ?>
 
     <div class="home-content">
-            <header> Welcome to Property Units!!</header>
+    <table class="table">
+                <thead>
+                    <tr>
+                       <th>#</th>
+                       <th>Unit</th>
+                       <th>Condition</th>
+                       <th>Rent</th>
+                       <th>Main Property</th>
+                       <th>Status</th>
+                       <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <?php
+                      require_once '../classes/tenants.class.php';
+
+                        $tenants = new Tenants();
+                        //We will now fetch all the records in the array using loop
+                        //use as a counter, not required but suggested for the table
+                        $i = 1;
+                        //loop for each record found in the array
+                        foreach ($tenants->show() as $value){ //start of loop
+                    ?>
+                        <tr>
+                            <!-- always use echo to output PHP values -->
+                            <td><?php echo $i ?></td>
+                            <td><?php echo $value['name']?></td>
+                            <td><?php echo $value['email'] ?></td>
+                            <td><?php echo $value['contact_num'] ?></td>
+                            <td><?php echo $value['assigned'] ?></td>
+                            <td><?php echo $value['action'] ?></td>
+                                <td>
+                                    <div class="action">
+                                        <a href="#">View</a>
+                                        <a class="#">Edit</a>
+                                        <a class="#">Delete</a>
+                                    </div>
+                                </td>
+                            <?php
+                                }
+                            ?>
+                        </tr>
+                    <?php
+                        $i++;
+                    //end of loop
+                    ?>
+                </tbody>
+            </table>
     </div>
 
 <?php

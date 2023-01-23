@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="../admin/tenant.php" class="<?php echo $tenants; ?>"title="Applications">
+            <a href="../admin/tenants.php" class="<?php echo $tenants; ?>"title="">
 
                 <span class="links-name">Tenants</span>
             </a>

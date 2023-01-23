@@ -13,7 +13,7 @@
     //if the above code is false then html below will be displayed
 
    // require_once '../tools/variables.php';
-    $page_title = 'Admin | Leases ';
+    $page_title = 'Admin | Landlord ';
     $dashboard = 'active';
 
     require_once '../includes/header.php';
@@ -26,38 +26,37 @@
                 <thead>
                     <tr>
                        <th>#</th>
-                       <th>Unit Name</th>
-                       <th>Type</th>
-                       <th>Rent</th>
-                       <th>Tenant Name</th>
+                       <th>Name</th>
+                       <th>Email</th>
+                       <th>Contact Number</th>
+                       <th>Assigned</th>
                        <th>Action</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        require_once '../classes/leases.class.php';
+                        require_once '../classes/tenants.class.php';
 
-                        $lease = new Leases();
+                        $tenants = new Tenants();
                         //We will now fetch all the records in the array using loop
                         //use as a counter, not required but suggested for the table
                         $i = 1;
                         //loop for each record found in the array
-                        foreach ($lease->show() as $value){ //start of loop
+                        foreach ($tenants->show() as $value){ //start of loop
                     ?>
                         <tr>
                             <!-- always use echo to output PHP values -->
                             <td><?php echo $i ?></td>
-                            <td><?php echo $value['p_unit_id']?></td>
-                            <td><?php echo $value['type'] ?></td>
-                            <td><?php echo $value['rent'] ?></td>
-                            <td><?php echo $value['tenant_name'] ?></td>
-                           
-            
+                            <td><?php echo $value['name']?></td>
+                            <td><?php echo $value['email'] ?></td>
+                            <td><?php echo $value['contact_num'] ?></td>
+                            <td><?php echo $value['assigned'] ?></td>
+                            <td><?php echo $value['action'] ?></td>
                                 <td>
                                     <div class="action">
-                                        <a class="action-edit" href="editlease.php?id=<?php echo $value['id'] ?>">Edit</a>
-                                        <a class="action-delete" href="deletelease.php?id=<?php echo $value['id'] ?>">Delete</a>
+                                        <a href="#">View</a>
+                                        <a class="#">Edit</a>
+                                        <a class="#">Delete</a>
                                     </div>
                                 </td>
                             <?php
@@ -67,7 +66,6 @@
                     <?php
                         $i++;
                     //end of loop
-                    }
                     ?>
                 </tbody>
             </table>
