@@ -5,85 +5,84 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="#" class="<?php echo $dashboard; ?>"title="Dashboard">
+            <a href='../dashboard.php' class="<?php echo $dashboard; ?>'title="Dashboard'>
 
             <i class='bx bxs-widget'></i>    
             <span class="links-name">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="../tenants/tenants.php" class="<?php echo $tenants; ?>"title="Tenants">
+            <a href="#" class="<?php echo $tenants; ?>"title="Tenants">
             <i class='bx bx-user'></i>
                 <span class="links-name">Tenants</span>
             </a>
         </li>
         <li>
-            <a href="#" class="<?php echo $landlord; ?>"title="landlord">
+            <a href="../admin/landlord/landlord.php" class="<?php echo $landlord; ?>"title="landlord">
             <i class='bx bxs-user-rectangle' ></i>
                 <span class="links-name">Landlords</span>
             </a>
         </li>
         <li>
-        <a href="#" class="<?php echo $properties; ?>"title="properties">
+        <a href="../admin/properties/properties.php" class="<?php echo $properties; ?>"title="properties">
 
         <i class='bx bx-building-house'></i>        
         <span class="links-name">Properties</span>
             </a>
         </li>
         <li>
-            <a href="../admin/p_units.php" class="<?php echo $p_units; ?>"title="#">
+            <a href="../p_units/p_units.php" class="<?php echo $p_units; ?>"title="#">
             <i class='bx bx-home-alt-2'></i>
                 <span class="links-name">Property Units</span>
             </a>
         </li>
         <li>
-            <a href="../admin/leases.php" class="<?php echo $leases; ?>"title="#">
+            <a href="../leases/leases.php" class="<?php echo $leases; ?>"title="#">
 
             <i class='bx bxs-key'></i>
             <span class="links-name">Leases</span>
             </a>
         </li>
         <li>
-            <a href="../admin/invoice.php" class="<?php echo $invoice; ?>"title="Setting">
+            <a href="../invoice/invoice.php" class="<?php echo $invoice; ?>"title="Setting">
 
             <i class='bx bxs-book-content'></i> 
             <span class="links-name">Invoice</span>
             </a>
         </li>
         <li>
-            <a href="../admin/reports.php" class="<?php echo $reports; ?>"title="Setting">
+            <a href="../reports/reports.php" class="<?php echo $reports; ?>"title="Setting">
 
             <i class='bx bxs-objects-vertical-bottom'></i>
             <span class="links-name">Reports</span>
             </a>
         </li>
         <li>
-            <a href="../admin/tickets.php" class="<?php echo $tickets; ?>"title="Setting">
-
+            <a href="../tickets/tickets.php" class="<?php echo $tickets; ?>"title="Setting">
             <i class='bx bxs-rename'></i>
             <span class="links-name">Tickets</span>
             </a>
         </li>
         <li>
-            <a href="../admin/c_events.php" class="<?php echo $c_events; ?>"title="Setting">
+            <a href="../c_events/c_events.php" class="<?php echo $c_events; ?>"title="Setting">
             <i class='bx bx-calendar'></i>
                 <span class="links-name">Calendar Events</span>
             </a>
         </li>
         <li>
-            <a href="../admin/m_user.php" class="<?php echo $m_user; ?>"title="Setting">
+            <a href="../m_user/m_user.php" class="<?php echo $m_user; ?>"title="Setting">
             <i class='bx bx-user-plus' ></i>
                 <span class="links-name">Manage User</span>
             </a>
         </li>
         <li>
-            <a href="../admin/settings.php" class="<?php echo $settings; ?>"title="Setting">
+            <a href="../settings/settings.php" class="<?php echo $settings; ?>"title="Setting">
             <i class='bx bx-cog'></i>
                 <span class="links-name">Settings</span>
             </a>
         </li>
         <li>
-            <a href="../admin/terms.php" class="<?php echo $terms; ?>"title="Setting">
+            <a href="../terms/terms.php" class="<?php echo $terms; ?>"title="Setting">
             <i class='bx bxs-book-bookmark'></i>
                 <span class="links-name">Terms & Condition</span>
             </a>

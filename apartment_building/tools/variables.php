@@ -2,11 +2,12 @@
 
     $page_title = "";
     $dashboard = "";
-    $application = "";
-    $screening = "";
-    $programs = "";
-    $students = "";
-    $faculty = "";
+    $tenants = "";
+    $landlord = "";
+    $invoice = "";
+    $lease = "";
+    $properties = "";
+    $property_unit = "";
     $settings = "";
 
 ?>
