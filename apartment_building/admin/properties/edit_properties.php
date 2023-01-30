@@ -15,12 +15,13 @@
         header('location: ../login/login.php');
     }
     //if the above code is false then code and html below will be executed
-
-    //if add tenants is submitted
+    $property = new Properties;
+    //if add properties is submitted
     if(isset($_POST['save'])){
 
-        $property = new Property;
+
         //sanitize user inputs
+        $property->id = $_POST['property-id'];
         $property->name = htmlentities($_POST['name']);
         $property->landlord_id = htmlentities($_POST['landlord_id']);
         $property->address = $_POST['address'];
@@ -29,18 +30,34 @@
         $property->zip = $_POST['zip'];
         $property->description = $_POST['description'];
         $property->description_feature = $_POST['description_feature'];
-        $property->feature = $_POST['feature'];
-        $property->image = $_POST['image'];
+        $property->emergency_num = $_POST['emergency_num'];
 
         if(validate_add_landlord($_POST)){
             if($property->add()){
                 //redirect user to program page after saving
-                header('location: tenants.php');
+                header('location: properties.php');
             }
         }
     }
+    else{
+        if ($property->fetch($_GET['id'])){
 
-    $page_title = 'Admin | Add Property';
+        $data = $property->fetch($_GET['id']);
+
+        $property->name = $data['name'];
+        $property->landlord_id = $data['landlord_id'];
+        $property->address = $data['address'];
+        $property->city = $data['city'];
+        $property->country = $data['country'];
+        $property->zip = $data['zip'];
+        $property->description = $data['description'];
+        $property->description_feature = $data['description_feature'];
+        $property->emergency_num = $data['emergency_num'];
+
+        }
+    }
+
+    $page_title = 'Admin | Edit Property';
     $landlord = 'active';
 
     require_once '../includes/header.php';

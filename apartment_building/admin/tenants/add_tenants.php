@@ -21,35 +21,43 @@
 
         $tenants = new Tenants;
         //sanitize user inputs
-        $tenants->code = htmlentities($_POST['code']);
-        $tenants->description = htmlentities($_POST['description']);
-        $tenants->years = $_POST['years'];
-        $tenants->level = $_POST['level'];
-        $tenants->cet = htmlentities($_POST['cet']);
-        $tenants->status = 'Not Set';
+        $tenants->firstname = htmlentities($_POST['firstname']);
+        $tenants->lastname = htmlentities($_POST['lastname']);
+        $tenants->email = htmlentities($_POST['email']);
+        $tenants->contact_num = $_POST['contact_num'];
+        $tenants->relationship = $_POST['relationship'];
+        $tenants->household_type = htmlentities($_POST['household_type']);
+        $tenants->prev_address = htmlentities($_POST['prev_address']);
+        $tenants->city = $_POST['city'];
+        $tenants->country = $_POST['country'];
+        $tenants->zip = $_POST['zip'];
+        $tenants->gender = $_POST['gender'];
+        $tenants->birthdate = $_POST['birthdate'];
+        $tenants->pet = $_POST['pet'];
+        $tenants->pet_num = $_POST['pet_num'];
+        $tenants->pet_type = $_POST['pet_type'];
+        $tenants->smoking = $_POST['cesmokingt'];
+        $tenants->vehicles = $_POST['vehicles'];
+        $tenants->occupants = $_POST['occupants'];
+        $tenants->pri = 'not p q';
+        $tenants->co_fname = $_POST['co_fname'];
+        $tenants->co_lname = $_POST['co_lname'];
+        $tenants->co_email = $_POST['co_email'];
+        $tenants->co_num = $_POST['co_num'];
+        $tenants->vehicles = $_POST['vehicles'];
+        $tenants->emergency_fname = $_POST['emergency_fname'];
+        $tenants->emergency_num = $_POST['emergency_num'];
+
         if(isset($_POST['status'])){
             $tenants->status = $_POST['status'];
         }
         if(validate_add_tenants($_POST)){
-            if($tenants->f()){
+            if($tenants->add()){
                 //redirect user to program page after saving
                 header('location: tenants.php');
             }
         }
     }
-    else{
-        if ($tenants->fetch($_GET['id'])){
-            $data = $tenants->fetch($_GET['id']);
-            $tenants->id = $data['id'];
-            $tenants->code = $data['code'];
-            $tenants->description = $data['description'];
-            $tenants->years = $data['years'];
-            $tenants->level = $data['level'];
-            $tenants->cet = $data['cet'];
-            $tenants->status = $data['status'];
-        }
-    }
-
 
     $page_title = 'Admin | Add Tenant';
     $tenants = 'active';
@@ -101,24 +109,58 @@
 
         <?php  } ?>
 
-        <label for="state">State</label>
-        <input type="text" id="state" name="state" placeholder = "State" value="<?php if(isset($_POST['state'])) { echo $_POST['state']; } ?>" required =""><br>
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" placeholder = "Country" value="<?php if(isset($_POST['country'])) { echo $_POST['country']; } ?>" required =""><br>
 
         <label for="zip">Zip</label>
         <input type="number" id="zip" name="zip"  value="<?php if(isset($_POST['zip'])) { echo $_POST['zip']; } ?>" required =""><br>
 
-        <label for="zip">Gender</label><br>
+        <label for="gender">Gender</label><br>
         <input type="radio" id="gender" name="male" value="male">
         <label for="male">Male</label>
         <input type="radio" id="gender" name="female" value="female">
         <label for="female">Female</label><br>
+
+        <label for="pet">Do tenant own a pet?</label><br>
+        <input type="radio" id="pet" name="yes" value="yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="pet" name="no" value="no">
+        <label for="no">No</label><br>
+        
+        <label for="pet_num">No. of pet</label>
+        <input type="number" id="pet_num" name="pet_num"  value="<?php if(isset($_POST['pet_num'])) { echo $_POST['pet_num']; } ?>"><br>
+        
+        <label for="pet_type">Type</label>
+        <input type="text" id="pet_type" name="pet_type"  value="<?php if(isset($_POST['pet_type'])) { echo $_POST['pet_num']; } ?>"><br>
+
+        <label for="smoking">Do tenant smoke?</label><br>
+        <input type="radio" id="smoking" name="smoke" value="smoke">
+        <label for="smoke">Yes</label>
+        <input type="radio" id="smoking" name="not" value="not">
+        <label for="not">No</label><br>
+        
+        
+        <label for="vehicle">Please check if tenant own any of the vehicles:</label><br>
+
+        <input type="checkbox" id = 'vehicle1' value ='car'>
+        <label for='vehicle1'>Car</label><br>
+
+        <input type="checkbox" id = 'vehicle2' value ='motorcyle'>
+        <label for='vehicle2'>Motorcycle</label><br>
+
+        <input type="checkbox" id = 'vehicle3' value ='other'>
+        <label for='vehicle3'>Other</label><br>
+        
+        <label for='vehicle3'>If other, please specify:</label>
+        <input type='text' id = 'vehicle3' >
+
      </form><!-- this is the end of the form -->
 
      <div class = "table-heading">
         <h3 class="table-title">Other Occupant </h3>
     </div>
 
-    <label for="occupants">Zip</label>
+    <label for="occupants"></label>
     <input type="text" id="occupants" name="occupants"  value="<?php if(isset($_POST['occupants'])) { echo $_POST['occupants']; } ?>" ><br>
 
 
@@ -127,29 +169,29 @@
         <input type="button" onclick="alert('Primary selected')" value="+ Set as Primary">
     </div>
 
-    <label for="co_fname">Zip</label>
+    <label for="co_fname">First Name</label>
     <input type="text" id="fname" name="co_fname"  value="<?php if(isset($_POST['co_fname'])) { echo $_POST['co_fname']; } ?>" ><br>
 
-    <label for="co_lname">Zip</label>
+    <label for="co_lname">Last Name</label>
     <input type="text" id="co_lname" name="co_lname"  value="<?php if(isset($_POST['co_lname'])) { echo $_POST['co_lname']; } ?>" ><br>
 
-    <label for="co_email">Zip</label>
+    <label for="co_email">Email</label>
     <input type="email" id="co_email" name="co_email"  value="<?php if(isset($_POST['co_email'])) { echo $_POST['co_email']; } ?>" ><br>
 
-    <label for="co_num">Zip</label>
+    <label for="co_num">Contact No.</label>
     <input type="number" id="co_num" name="co_num"  value="<?php if(isset($_POST['co_num'])) { echo $_POST['co_num']; } ?>" ><br>
 
     <div class = "table-heading">
         <h3 class="table-title">Emergency Contact Details </h3>
     </div>
 
-    <label for="emergency_fname">Zip</label>
+    <label for="emergency_fname">Full Name</label>
     <input type="text" id="emergency_fname" name="emergency_fname"  value="<?php if(isset($_POST['emergency_fname'])) { echo $_POST['emergency_fname']; } ?>" ><br>
 
-    <label for="emergency_num">Zip</label>
+    <label for="emergency_num">Contact No.</label>
     <input type="number" id="emergency_num" name="emergency_num"  value="<?php if(isset($_POST['emergency_num'])) { echo $_POST['emergency_num']; } ?>" ><br>
 
-
+    <input type="submit" class="button" value="Save Tenant" name="save" id="save">
     </div>
 </div>
 

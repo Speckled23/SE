@@ -23,7 +23,7 @@
             $_SESSION['user_type'] = $row['role'];
 
            if($_SESSION['user_type']== 'admin'){
-            header('location: ../admin/dashboard.php');
+            header('location: ../admin/admin/dashboard.php');
            }if($_SESSION['user_type']== 'landlord'){
             header('location: ../landlord/landlord.php');
            }elseif($_SESSION['user_type']== 'tenant'){
@@ -37,7 +37,7 @@
 
 
 
-    require_once '../includes/header.php';
+    require_once '../admin/includes/header.php';
 
 ?>
 <body class="vh-100 gradient-custom">
@@ -77,7 +77,7 @@
         </div>
     </section>
 <?php
-    require_once '../includes/footer.php';
+    require_once '../admin/includes/footer.php';
 ?>
     <script>
         const togglePassword = document

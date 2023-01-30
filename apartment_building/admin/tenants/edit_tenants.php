@@ -15,21 +15,22 @@
         header('location: ../login/login.php');
     }
     //if the above code is false then code and html below will be executed
-
+    $tenants = new Tenants;
     //if add tenants is submitted
     if(isset($_POST['save'])){
 
-        $tenants = new Tenants;
+        
         //sanitize user inputs
+        $tenants->id = $_POST['tenant-id'];
         $tenants->firstname = htmlentities($_POST['firstname']);
         $tenants->lastname = htmlentities($_POST['lastname']);
         $tenants->email = htmlentities($_POST['email']);
         $tenants->contact_num = $_POST['contact_num'];
-        $tenants->relationship = $_POST['relationship'];
+        $tenants->status = $_POST['relationship'];
         $tenants->household_type = htmlentities($_POST['household_type']);
         $tenants->prev_address = htmlentities($_POST['prev_address']);
         $tenants->city = $_POST['city'];
-        //$tenants->state = $_POST['level'];
+        $tenants->country = $_POST['country'];
         $tenants->zip = $_POST['zip'];
         $tenants->gender = 'Not Set';
         $tenants->birthdate = $_POST['birthdate'];
@@ -57,7 +58,41 @@
                 header('location: tenants.php');
             }
         }
+    }else{
+        if ($tenants->fetch($_GET['id'])){
+
+            $data = $tenants->fetch($_GET['id']);
+
+            $tenants->id = $data['id'];
+            $tenants->firstname = $data['firstname'];
+            $tenants->lastname = $data['lastname'];
+            $tenants->email = $data['email'];
+            $tenants->contact_num = $data['contact_num'];
+            $tenants->status = $data['status'];
+            $tenants->household_type = $data['household_type'];
+            $tenants->prev_address = $data['prev_address'];
+            $tenants->city =$data['city'];
+            $tenants->country = $data['country'];
+            $tenants->zip = $data['zip'];
+            $tenants->gender = $data['gender'];
+            $tenants->birthdate = $data['birthdate'];
+            $tenants->pet = $data['pet'];
+            $tenants->pet_num = $data['pet_num'];
+            $tenants->pet_type = $data['pet_type'];
+            $tenants->smoking = $data['smoking'];
+            $tenants->vehicles = $data['vehicles'];
+            $tenants->occupants = $data['occupants'];
+            $tenants->pri = $data['pri'];
+            $tenants->co_fname = $data['co_fname'];
+            $tenants->co_lname = $data['co_lname'];
+            $tenants->co_email = $data['co_email'];
+            $tenants->co_num = $data['co_num'];
+            $tenants->vehicles = $data['vehicles'];
+            $tenants->emergency_fname = $data['emergency_fname'];
+            $tenants->emergency_num = $data['emergency_num'];
+        }
     }
+
 
     $page_title = 'Admin | Add Tenant';
     $tenants = 'active';
@@ -87,8 +122,8 @@
         <input type="number" id="contact_num" name="contact_num"  value="<?php if(isset($_POST['contact_num'])) { echo $_POST['contact_num']; } ?>" required =""><br>
 
         <!--  -->
-        <label for="rel_status">Relationship Status</label>
-        <input type="text" id="rel_status" name="rel_status"  value="<?php if(isset($_POST['rel_status'])) { echo $_POST['rel_status']; } ?>" required =""><br>
+        <label for="status">Relationship Status</label>
+        <input type="text" id="status" name="status"  value="<?php if(isset($_POST['status'])) { echo $_POST['status']; } ?>" required =""><br>
 
         <label for="household_type">Type of Household</label>
         <input type="text" id="household_type" name="household_type"  value="<?php if(isset($_POST['household_type'])) { echo $_POST['household_type']; } ?>" required =""><br>
@@ -109,8 +144,8 @@
 
         <?php  } ?>
 
-        <label for="state">State</label>
-        <input type="text" id="state" name="state" placeholder = "State" value="<?php if(isset($_POST['state'])) { echo $_POST['state']; } ?>" required =""><br>
+        <label for="country">State</label>
+        <input type="text" id="country" name="country" placeholder = "Country" value="<?php if(isset($_POST['country'])) { echo $_POST['country']; } ?>" required =""><br>
 
         <label for="zip">Zip</label>
         <input type="number" id="zip" name="zip"  value="<?php if(isset($_POST['zip'])) { echo $_POST['zip']; } ?>" required =""><br>

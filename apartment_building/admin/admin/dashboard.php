@@ -16,9 +16,9 @@
     $page_title = 'Admin | Dashboard';
     $dashboard = 'active';
 
-    require_once 'includes/header.php';
-    require_once 'includes/sidebar.php';
-    require_once 'includes/topnav.php';
+    require_once '../includes/header.php';
+    require_once '../includes/sidebar.php';
+    require_once '../includes/topnav.php';
 ?>
 
 <div class="home-content">
@@ -71,5 +71,5 @@
 
 <?php
 
-require_once 'includes/footer.php';
+require_once '../includes/footer.php';
 ?>

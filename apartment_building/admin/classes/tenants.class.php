@@ -13,10 +13,11 @@ class Tenants{
     public $household_type;
     public $prev_address;
     public $city;
-    public $state;
+    public $country;
     public $zip;
     public $gender;
     public $birthdate;
+    public $pet;
     public $pet_num;
     public $pet_type;
     public $smoking;
@@ -40,10 +41,10 @@ class Tenants{
     //Methods
     function add(){
         $sql = "INSERT INTO tenants ( firstname, lastname, email, contact_num, status, household_type, prev_address, city,
-         state, zip, gender, birthdate, pet_num, pet_type, smoking, vehicles, occupants, pri, co_fname, co_lname, co_email, 
+         country, zip, gender, birthdate, pet, pet_num, pet_type, smoking, vehicles, occupants, pri, co_fname, co_lname, co_email, 
          co_num, emergency_fname, emergency_num ) VALUES 
          ( :firstname, :lastname, :email, :contact_num, :status, :household_type, :prev_address, :city,
-         :state, :zip, :gender, :birthdate, :pet_num, :pet_type, :smoking, :vehicles, :occupants, :pri, :co_fname, :co_lname, :co_email, 
+         :country, :zip, :gender, :birthdate, :pet, :pet_num, :pet_type, :smoking, :vehicles, :occupants, :pri, :co_fname, :co_lname, :co_email, 
          :co_num, :emergency_fname, :emergency_num );";
 
         $query=$this->db->connect()->prepare($sql);
@@ -55,9 +56,10 @@ class Tenants{
         $query->bindParam(':household_type', $this->household_type);
         $query->bindParam(':prev_address', $this->prev_address);
         $query->bindParam(':city', $this->city);
-        $query->bindParam(':state', $this->state);
+        $query->bindParam(':country', $this->country);
         $query->bindParam(':zip', $this->zip);
         $query->bindParam(':gender', $this->gender);
+        $query->bindParam(':pet', $this->pet);
         $query->bindParam(':pet_num', $this->pet_num);
         $query->bindParam(':pet_type', $this->pet_type);
         $query->bindParam(':smoking', $this->smoking);
@@ -81,7 +83,7 @@ class Tenants{
 
     function edit(){
         $sql = "UPDATE tenants SET firstname = :firstname, lastname =:lastname, email =:email, contact_num =:contact_num, status =:status, household_type =:household_type, prev_address =:prev_address, city =:city,
-        state =:state, zip =:zip, gender =:gender, birthdate =:birthdate, pet_num =:pet_num, pet_type =:pet_type, smoking =:smoking, vehicles =:vehicles, occupants =:occupants, pri =:pri, co_fname =:co_fname, co_lname =:co_lname, co_email =:co_email, 
+        country =:country, zip =:zip, gender =:gender, birthdate =:birthdate,  pet =:pet,, pet_num =:pet_num, pet_type =:pet_type, smoking =:smoking, vehicles =:vehicles, occupants =:occupants, pri =:pri, co_fname =:co_fname, co_lname =:co_lname, co_email =:co_email, 
         co_num =:co_num, emergency_fname =:emergency_fname, emergency_num =:emergency_num WHERE id = :id;";
 
         $query=$this->db->connect()->prepare($sql);
@@ -93,9 +95,10 @@ class Tenants{
         $query->bindParam(':household_type', $this->household_type);
         $query->bindParam(':prev_address', $this->prev_address);
         $query->bindParam(':city', $this->city);
-        $query->bindParam(':state', $this->state);
+        $query->bindParam(':country', $this->country);
         $query->bindParam(':zip', $this->zip);
         $query->bindParam(':gender', $this->gender);
+        $query->bindParam(':pet', $this->pet);
         $query->bindParam(':pet_num', $this->pet_num);
         $query->bindParam(':pet_type', $this->pet_type);
         $query->bindParam(':smoking', $this->smoking);

@@ -9,7 +9,7 @@ class Properties{
     public $landlord_id;
     public $address;
     public $city;
-    public $state;
+    public $country;
     public $zip;
     public $description;
     public $description_feature;
@@ -26,9 +26,9 @@ class Properties{
 
     //Methods
     function add(){
-        $sql = "INSERT INTO properties ( name, landlord_id, address,  city, state, zip,
+        $sql = "INSERT INTO properties ( name, landlord_id, address,  city, country, zip,
          description, description_feature, feature, image ) VALUES 
-         ( :name, :landlord_id, :address, :city, :state, :zip,
+         ( :name, :landlord_id, :address, :city, :country, :zip,
          :description, :description_feature, :feature, :image );";
 
         $query=$this->db->connect()->prepare($sql);
@@ -36,7 +36,7 @@ class Properties{
         $query->bindParam(':landlord_id', $this->landlord_id);
         $query->bindParam(':address', $this->address);
         $query->bindParam(':city', $this->city);
-        $query->bindParam(':state', $this->state);
+        $query->bindParam(':country', $this->country);
         $query->bindParam(':zip', $this->zip);
         $query->bindParam(':description', $this->description);
         $query->bindParam(':description_feature', $this->description_feature);
@@ -52,7 +52,7 @@ class Properties{
     }
 
     function edit(){
-        $sql = "UPDATE properties SET name = :name, landlord_id =:landlord_id, address =:address, city =:city, state =:state, zip =:zip,
+        $sql = "UPDATE properties SET name = :name, landlord_id =:landlord_id, address =:address, city =:city, country =:country, zip =:zip,
         description =:description, description_feature =:description_feature, feature =:feature, image =:image WHERE id = :id;";
 
 $query=$this->db->connect()->prepare($sql);
@@ -60,7 +60,7 @@ $query->bindParam(':name', $this->name);
 $query->bindParam(':landlord_id', $this->landlord_id);
 $query->bindParam(':address', $this->address);
 $query->bindParam(':city', $this->city);
-$query->bindParam(':state', $this->state);
+$query->bindParam(':country', $this->country);
 $query->bindParam(':zip', $this->zip);
 $query->bindParam(':description', $this->description);
 $query->bindParam(':description_feature', $this->description_feature);

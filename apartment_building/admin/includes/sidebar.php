@@ -5,26 +5,26 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href='../dashboard.php' class="<?php echo $dashboard; ?>'title="Dashboard'>
+            <a href="../admin/dashboard.php" class="<?php echo $dashboard; ?>"title="Dashboard">
 
             <i class='bx bxs-widget'></i>    
             <span class="links-name">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="#" class="<?php echo $tenants; ?>"title="Tenants">
+            <a href="../tenants/tenants.php" class="<?php echo $tenants; ?>"title="Tenants">
             <i class='bx bx-user'></i>
                 <span class="links-name">Tenants</span>
             </a>
         </li>
         <li>
-            <a href="../admin/landlord/landlord.php" class="<?php echo $landlord; ?>"title="landlord">
+            <a href='../landlord/landlord.php' class="<?php echo $landlord; ?>"title="landlord">
             <i class='bx bxs-user-rectangle' ></i>
                 <span class="links-name">Landlords</span>
             </a>
         </li>
         <li>
-        <a href="../admin/properties/properties.php" class="<?php echo $properties; ?>"title="properties">
+        <a href="../properties/properties.php" class="<?php echo $properties; ?>"title="properties">
 
         <i class='bx bx-building-house'></i>        
         <span class="links-name">Properties</span>
@@ -59,6 +59,7 @@
         </li>
         <li>
             <a href="../tickets/tickets.php" class="<?php echo $tickets; ?>"title="Setting">
+
             <i class='bx bxs-rename'></i>
             <span class="links-name">Tickets</span>
             </a>
@@ -76,7 +77,7 @@
             </a>
         </li>
         <li>
-            <a href="../settings/settings.php" class="<?php echo $settings; ?>"title="Setting">
+            <a href="../setting/settings.php" class="<?php echo $settings; ?>"title="Setting">
             <i class='bx bx-cog'></i>
                 <span class="links-name">Settings</span>
             </a>
@@ -90,7 +91,7 @@
 
 
         <li id="logout-link">
-            <a class="logout-link" href="../login/logout.php" title="Logout">
+            <a class="logout-link" href="../../login/logout.php" title="Logout">
             <i class='bx bx-log-out'></i>
                 <span class="links-name">Logout</span>
             </a>
