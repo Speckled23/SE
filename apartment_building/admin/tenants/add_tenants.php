@@ -1,6 +1,6 @@
 <?php
 
-   // require_once '../tools/functions.php';
+    require_once '../tools/functions.php';
     require_once '../classes/tenants.class.php';
     require_once '../classes/address.php';
 

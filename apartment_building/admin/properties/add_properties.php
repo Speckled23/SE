@@ -82,7 +82,7 @@
         <input type="number" id="zip" name="zip"  value="<?php if(isset($_POST['zip'])) { echo $_POST['zip']; } ?>" required =""><br>
 
         <label for="description">Description</label>
-        <input type="text" id="fname" name="fname"  value="<?php if(isset($_POST['fname'])) { echo $_POST['fname']; } ?>" ><br>
+        <input type="text" id="fndescriptioname" name="description"  value="<?php if(isset($_POST['description'])) { echo $_POST['description']; } ?>" ><br>
 
         <h3 class="table-title">Property Features</h3>
 

@@ -37,7 +37,7 @@
             </a>
         </li>
         <li>
-            <a href="../leases/leases.php" class="<?php echo $leases; ?>"title="#">
+            <a href="../lease/lease.php" class="<?php echo $leases; ?>"title="#">
 
             <i class='bx bxs-key'></i>
             <span class="links-name">Leases</span>

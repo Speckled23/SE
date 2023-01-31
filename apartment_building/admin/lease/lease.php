@@ -21,8 +21,17 @@
     //require_once '../includes/topnav.php';
 ?>
 
-    <div class="home-content">
-    <table class="table">
+    <div class='home-content'>
+    <h3 class='table-title'>Leases</h3>
+                <?php
+                    if($_SESSION['user_type'] == 'admin'){ 
+                ?>
+                    <a href='add_lease.php' class='button'>Add Lease</a>
+                <?php
+                    }
+                ?>
+    <table class='table'>
+
                 <thead>
                     <tr>
                        <th>#</th>
@@ -36,9 +45,9 @@
                 </thead>
                 <tbody>
                     <?php
-                        require_once '../classes/leases.class.php';
+                        require_once '../classes/lease.class.php';
 
-                        $lease = new Leases();
+                        $lease = new Lease();
                         //We will now fetch all the records in the array using loop
                         //use as a counter, not required but suggested for the table
                         $i = 1;
@@ -48,15 +57,15 @@
                         <tr>
                             <!-- always use echo to output PHP values -->
                             <td><?php echo $i ?></td>
-                            <td><?php echo $value['p_unit_id']?></td>
+                            <td><?php echo $value['unit_name']?></td>
                             <td><?php echo $value['type'] ?></td>
                             <td><?php echo $value['rent'] ?></td>
                             <td><?php echo $value['tenant_name'] ?></td>
                                 <td>
-                                    <div class="action">
-                                        <a class= "action-view"href="#">View</a>
-                                        <a class="action-edit" href="#">Edit</a>
-                                        <a class="action-delete" href="#">Delete</a>
+                                    <div class='action'>
+                                        <a class=  'action-view' href='#'>View</a>
+                                        <a class='action-edit' href='edit_lease.php?id=<?php echo $value['id'] ?>'>Edit</a>
+                                        <a class='action-delete' href='delete_lease.php?id=<?php echo $value['id'] ?>'>Delete</a>
                                     </div>
                                 </td>
                             <?php

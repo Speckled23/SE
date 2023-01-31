@@ -5,14 +5,12 @@ class P_units{
     //Attributes
 
     public $id;
-    public $name;
-    public $main_p;
-    public $address;
+    public $unit_name;
+    public $main_property;
     public $type;
-    public $description_p;
-    public $status;
-    public $rent_amount;
-    public $condition;
+    public $description;
+    public $rent;
+    public $unit_condition;
 
 
     protected $db;
@@ -24,20 +22,17 @@ class P_units{
 
     //Methods
     function add(){
-        $sql = "INSERT INTO propert_units ( name, main_p, address,  type, description_p, status,
-         rent_amount, condition ) VALUES 
-         ( :name, :main_p, :address, :type, :description_p, :status,
-         :rent_amount, :condition );";
+        $sql = "INSERT INTO propert_units ( unit_name, main_property, type, description, rent,
+         unit_condition,  ) VALUES 
+         ( :unit_name, :main_property, :type, :type, :description, :rent, :unit_condition );";
 
         $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':name', $this->name);
-        $query->bindParam(':main_p', $this->main_p);
-        $query->bindParam(':address', $this->address);
+        $query->bindParam(':unit_name', $this->unit_name);
+        $query->bindParam(':main_property', $this->main_property);
         $query->bindParam(':type', $this->type);
-        $query->bindParam(':description_p', $this->description_p);
-        $query->bindParam(':status', $this->status);
-        $query->bindParam(':rent_amount', $this->rent_amount);
-        $query->bindParam(':condition', $this->condition);
+        $query->bindParam(':description', $this->description);
+        $query->bindParam(':rent', $this->rent);
+        $query->bindParam(':unit_condition', $this->unit_condition);
 
         if($query->execute()){
             return true;
@@ -48,18 +43,16 @@ class P_units{
     }
 
     function edit(){
-        $sql = "UPDATE property_units SET name = :name, main_p =:main_p, address =:address, type =:type, description_p =:description_p, status =:status,
-        rent_amount =:rent_amount, condition =:condition WHERE id = :id;";
+        $sql = "UPDATE property_units SET unit_name = :unit_name, main_property =:main_property, type =:type, description =:description, rent =:rent,
+        unit_condition =:unit_condition WHERE id = :id;";
 
         $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':name', $this->name);
-        $query->bindParam(':main_p', $this->main_p);
-        $query->bindParam(':address', $this->address);
+        $query->bindParam(':unit_name', $this->unit_name);
+        $query->bindParam(':main_property', $this->main_property);
         $query->bindParam(':type', $this->type);
-        $query->bindParam(':description_p', $this->description_p);
-        $query->bindParam(':status', $this->status);
-        $query->bindParam(':rent_amount', $this->rent_amount);
-        $query->bindParam(':condition', $this->condition);
+        $query->bindParam(':description', $this->description);
+        $query->bindParam(':rent', $this->rent);
+        $query->bindParam(':unit_condition', $this->unit_condition);
 
 
 

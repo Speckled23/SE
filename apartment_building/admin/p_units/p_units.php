@@ -26,7 +26,7 @@
                 <?php
                     if($_SESSION['user_type'] == 'admin'){ 
                 ?>
-                    <a href="add_properties.php" class="button">Add Property Units</a>
+                    <a href="add_p_units.php" class="button">Add Property Units</a>
                 <?php
                     }
                 ?>
@@ -56,12 +56,11 @@
                         <tr>
                             <!-- always use echo to output PHP values -->
                             <td><?php echo $i ?></td>
-                            <td><?php echo $value['name']?></td>
-                            <td><?php echo $value['main_p'] ?></td>
-                            <td><?php echo $value['condition'] ?></td>
-                            <td><?php echo $value['rent_amount'] ?></td>
+                            <td><?php echo $value['unit_name']?></td>
+                            <td><?php echo $value['unit_condition'] ?></td>
+                            <td><?php echo $value['rent'] ?></td>
                             <td><?php echo $value['main_property'] ?></td>
-                            <td><?php echo $value['status'] ?></td>
+                            <td><?php echo $value['unit_condition'] ?></td>
                             <?php
                            if($_SESSION['user_type'] == 'admin'){ 
                             ?>
