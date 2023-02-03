@@ -18,68 +18,63 @@
 
     require_once '../includes/header.php';
     require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
 ?>
 
-    <div class="home-content">
+    <div class="home-section">
             <h3 class="table-title">Tenants</h3>
                 <?php
                     if($_SESSION['user_type'] == 'admin'){ 
                 ?>
-                    <a href="add_tenants.php" class="button">Add Tenant</a>
+                    <a href="add_tenants.php" class="button float-right">Add Tenant</a>
                 <?php
                     }
                 ?>
-                    <table class="table">
-                                <thead>
-                                    <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Contact No.</th>
-                                    <th>Leases</th>
-                                    <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        require_once '../classes/tenants.class.php';
+                 <table id="tenant-table" class="display">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact No.</th>
+      <th>Leases</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+      require_once '../classes/tenants.class.php';
+      $tenants = new Tenants();
+      $i = 1;
+      foreach ($tenants->show() as $value){
+    ?>
+    <tr>
+      <td><?php echo $i ?></td>
+      <td><?php echo $value['first_name'].''. $value['last_name']?></td>
+      <td><?php echo $value['email'] ?></td>
+      <td><?php echo $value['contact_no'] ?></td>
+      <td><?php echo $value['lease'] ?></td>
+      <?php if ($_SESSION['user_type'] == 'admin') { ?>
+        <td>
+          <div class="action">
+             <a class="action-edit" href="view_tenant.php?id=<?php echo $value['id'] ?>">View</a>
+            <a class="action-edit" href="edit_tenants.php?id=<?php echo $value['id'] ?>">Edit</a>
+            <a class="action-delete" href="delete_tenants.php?id=<?php echo $value['id'] ?>">Delete</a>
+          </div>
+        </td>
+      <?php } ?>
+    </tr>
+    <?php
+      $i++;
+      }
+    ?>
+  </tbody>
+</table>
 
-                                        $tenants = new Tenants();
-                                        //We will now fetch all the records in the array using loop
-                                        //use as a counter, not required but suggested for the table
-                                        $i = 1;
-                                        //loop for each record found in the array
-                                        foreach ($tenants->show() as $value){ //start of loop
-                                    ?>
-                                        <tr>
-                                            <!-- always use echo to output PHP values -->
-                                            <td><?php echo $i ?></td>
-                                            <td><?php echo $value['firstname'].''. $value['lastname']?></td>
-                                            <td><?php echo $value['email'] ?></td>
-                                            <td><?php echo $value['contact_num'] ?></td>
-                                            <td><?php echo $value['lease'] ?></td>
-                                            <?php
-                                                if($_SESSION['user_type'] == 'admin'){ 
-                                            ?>
-                                                <td>
-                                                    <div class="action">
-                                                    <a class="action-edit" href="edit_tenants.php?id=<?php echo $value['id'] ?>">Edit</a>
-                                                        <a class="action-delete" href="delete_tenants.php?id=<?php echo $value['id'] ?>">Delete</a>
-                                                    </div>
-                                                </td>
-                                            <?php
-                                                }
-                                            ?>
-                                        </tr>
-                                    <?php
-                                        $i++;
-                                    //end of loop
-                                            }
-                                    ?>
-                                </tbody>
-                            </table>
-                    </div>
+<script>
+$(document).ready(function() {
+  $('#tenant-table').DataTable();
+});
+</script>
 
 <?php
 

@@ -1,132 +1,109 @@
-<div class="side-bar">
-<div class="logo-details">
-        <span class="logo-name"></span>
-        <i class='bx bx-menu'></i>
-    </div>
-    <ul class="nav-links">
+<div class="sidebar">
+      <ul class="nav-links">
         <li>
-            <a href="../admin/dashboard.php" class="<?php echo $dashboard; ?>"title="Dashboard">
-
-            <i class='bx bxs-widget'></i>    
-            <span class="links-name">Dashboard</span>
-            </a>
+          <a href="../admin/dashboard.php" class="active">
+            <i class='bx bx-grid-alt box' title="Dashboard"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
         </li>
         <li>
-            <a href="../tenants/tenants.php" class="<?php echo $tenants; ?>"title="Tenants">
-            <i class='bx bx-user'></i>
-                <span class="links-name">Tenants</span>
-            </a>
+          <a href="../tenantS/tenantS.php" >
+            <i class='bx bx-user box' title="Tenant"></i>
+            <span class="links_name">Tenants</span>
+          </a>
         </li>
         <li>
-            <a href='../landlord/landlord.php' class="<?php echo $landlord; ?>"title="landlord">
-            <i class='bx bxs-user-rectangle' ></i>
-                <span class="links-name">Landlords</span>
-            </a>
+          <a href="../landlord/landlord.php">
+            <i class='bx bxs-user-rectangle box' title="Landlord" ></i>
+            <span class="links_name">Landlord</span>
+          </a>
         </li>
         <li>
-        <a href="../properties/properties.php" class="<?php echo $properties; ?>"title="properties">
-
-        <i class='bx bx-building-house'></i>        
-        <span class="links-name">Properties</span>
-            </a>
+          <a href="../properties/properties.php">
+            <i class='bx bx-building-house box' title="Properties"></i>
+            <span class="links_name">Properties</span>
+          </a>
         </li>
         <li>
-            <a href="../p_units/p_units.php" class="<?php echo $p_units; ?>"title="#">
-            <i class='bx bx-home-alt-2'></i>
-                <span class="links-name">Property Units</span>
-            </a>
+          <a href="../p_units/p_units.php">
+            <i class='bx bx-home-alt-2 box' title="Property Units"></i>
+            <span class="links_name">Property Units</span>
+          </a>
         </li>
         <li>
-            <a href="../lease/lease.php" class="<?php echo $leases; ?>"title="#">
-
-            <i class='bx bxs-key'></i>
-            <span class="links-name">Leases</span>
-            </a>
+          <a href="../lease/lease.php">
+            <i class='bx bxs-key box' title="Leases"></i>
+            <span class="links_name">Leases</span>
+          </a>
         </li>
         <li>
-            <a href="../invoice/invoice.php" class="<?php echo $invoice; ?>"title="Setting">
-
-            <i class='bx bxs-book-content'></i> 
-            <span class="links-name">Invoice</span>
-            </a>
+          <a href="../admin/invoice.php">
+            <i class='bx bxs-book-content box' title="Invoice"></i>
+            <span class="links_name">Invoice</span>
+          </a>
         </li>
         <li>
-            <a href="../reports/reports.php" class="<?php echo $reports; ?>"title="Setting">
-
-            <i class='bx bxs-objects-vertical-bottom'></i>
-            <span class="links-name">Reports</span>
-            </a>
+          <a href="../admin/reports.php">
+            <i class='bx bxs-objects-vertical-bottom box' title="Reports"></i>
+            <span class="links_name">Reports</span>
+          </a>
         </li>
         <li>
-            <a href="../tickets/tickets.php" class="<?php echo $tickets; ?>"title="Setting">
-
-            <i class='bx bxs-rename'></i>
-            <span class="links-name">Tickets</span>
-            </a>
+          <a href="../admin/tickets.php">
+            <i class='bx bxs-rename box' title="Penalties"></i>
+            <span class="links_name">Penalties</span>
+          </a>
+        </li>
+         <li>
+          <a href="../admin/c_events.php">
+            <i class='bx bx-calendar box' title="Calendar Events"></i>
+            <span class="links_name">Calendar Events</span>
+          </a>
+        </li>
+         <li>
+          <a href="../admin/m_user.php">
+            <i class='bx bx-user-plus box' title="Manage Users" ></i>
+            <span class="links_name">Manage User</span>
+          </a>
+        </li>
+         <li>
+          <a href="../admin/settings.php">
+            <i class='bx bx-cog box' title="Settings"></i>
+            <span class="links_name">Settings</span>
+          </a>
         </li>
         <li>
-            <a href="../c_events/c_events.php" class="<?php echo $c_events; ?>"title="Setting">
-            <i class='bx bx-calendar'></i>
-                <span class="links-name">Calendar Events</span>
-            </a>
-        </li>
-        <li>
-            <a href="../m_user/m_user.php" class="<?php echo $m_user; ?>"title="Setting">
-            <i class='bx bx-user-plus' ></i>
-                <span class="links-name">Manage User</span>
-            </a>
-        </li>
-        <li>
-            <a href="../setting/settings.php" class="<?php echo $settings; ?>"title="Setting">
-            <i class='bx bx-cog'></i>
-                <span class="links-name">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a href="../terms/terms.php" class="<?php echo $terms; ?>"title="Setting">
-            <i class='bx bxs-book-bookmark'></i>
-                <span class="links-name">Terms & Condition</span>
-            </a>
+          <a href="../admin/terms.php">
+            <i class='bx bxs-book-bookmark box' title="Terms and Condition"></i>
+            <span class="links_name">Terms and Condition</span>
+          </a>
         </li>
 
-
-        <li id="logout-link">
-            <a class="logout-link" href="../../login/logout.php" title="Logout">
-            <i class='bx bx-log-out'></i>
-                <span class="links-name">Logout</span>
-            </a>
+        <li class="log_out">
+          <a href="../login/login.php">
+            <i class='bx bx-log-out box' title="Logout"></i>
+            <span class="links_name">Log out</span>
+          </a>
         </li>
-    </ul>
-</div>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+      </div>
+</nav>
+</section>
 
-<!--<div id="logout-dialog" class="dialog" title="Logout">
-    <p><span>Are you sure you want to logout?</span></p>
-</div>-->
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
 
-<script>
-    $(document).ready(function() {
-        $("#logout-dialog").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".logout-link").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#logout-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "No" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#logout-dialog").dialog("open");
-        });
-    });
-</script>

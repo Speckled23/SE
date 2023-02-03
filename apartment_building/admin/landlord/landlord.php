@@ -18,7 +18,7 @@
 
     require_once '../includes/header.php';
     require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+   
 ?>
 
     <div class="home-content">

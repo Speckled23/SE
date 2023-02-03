@@ -1,5 +1,5 @@
 <?php
-    require_once '../classes/database.php';
+    require_once '../admin/classes/database.php';
     $page_title = "Log-in";
 
     //we start session since we need to use session values

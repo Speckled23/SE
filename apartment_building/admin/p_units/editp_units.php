@@ -24,7 +24,7 @@
         $p_units->unit_name = htmlentities($_POST['unit_name']);
         $p_units->main_property = htmlentities($_POST['main_property']);
         $p_units->type = $_POST['type'];
-        $p_units->description_p = $_POST['description'];
+        $p_units->description = $_POST['description'];
         $p_units->rent = $_POST['rent'];
         $p_units->unit_condition = $_POST['unit_condition'];
 
@@ -38,10 +38,11 @@
         if($p_units->fetch($_GET['id'])){
 
             $data = $p_units->fetch($_GET['id']);
+
             $p_units->unit_name = $data['unit_name'];
             $p_units->main_property = $data['main_property'];
             $p_units->type = $data['type'];
-            $p_units->description_p = $data['description'];
+            $p_units->description = $data['description'];
             $p_units->rent = $data['rent'];
             $p_units->unit_condition = $data['unit_condition'];
 
@@ -49,7 +50,7 @@
     }
 
     $page_title = 'Admin | Add Property Units';
-    $landlord = 'active';
+    $edit_p_units = 'active';
 
     require_once '../includes/header.php';
     require_once '../includes/sidebar.php';
@@ -62,7 +63,8 @@
         <a href="p_units.php" class ='bx bx-caret-left'>Back</a>
     </div>
     <div class ="add-tenant-container">
-    <form class="add-form" action="addprogram.php" method="post"><!-- this is the start of the form -->
+    <form class="add-form" action="edti_p_units.php" method="post"><!-- this is the start of the form -->
+
         <label for="unit_name">Property Unit unit_name</label>
         <input type="text" id="unit_name" name="unit_name"  value="<?php if(isset($_POST['unit_name'])) { echo $_POST['unit_name']; } ?>" required =""><br>
 

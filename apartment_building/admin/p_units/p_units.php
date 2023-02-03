@@ -66,7 +66,7 @@
                             ?>
                                 <td>
                                     <div class="action">
-                                    <a class="action-edit" href="edit_p_units.php?id=<?php echo $value['id'] ?>">Edit</a>
+                                    <a class="action-edit" href="editp_units.php?id=<?php echo $value['id'] ?>">Edit</a>
                                         <a class="action-delete" href="delete_p_units.php?id=<?php echo $value['id'] ?>">Delete</a>
                                     </div>
                                 </td>
