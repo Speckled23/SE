@@ -1,7 +1,7 @@
 <?php
 
     require_once '../tools/functions.php';
-    require_once '../classes/tenants.class.php';
+    require_once '../classes/lease.class.php';
     require_once '../classes/address.php';
 
     //resume session here to fetch session values
@@ -21,18 +21,26 @@
 
         $lease = new Lease;
         //sanitize user inputs
-        $tenants->first_name = htmlentities($_POST['first_name']);
-        $tenants->last_name = htmlentities($_POST['last_name']);
-        $tenants->email = htmlentities($_POST['email']);
+        $lease->p_unit_id = ($_POST['p_unit_id']);
+        $lease->tenants_id = ($_POST['last_name']);
+        $lease->startdate = ($_POST['startdate']);
+        $lease->enddate = ($_POST['enddate']);
+        $lease->rent = ($_POST['rent']);
+        $lease->deposit = ($_POST['deposit']);
+        $lease->advance = ($_POST['advance']);
+        $lease->electricity = ($_POST['electricity']);
+        $lease->water = ($_POST['water']);
+        $lease->leasedoc = ($_POST['leasedoc']);
 
-            if($tenants->add()){
+
+            if($lease->add()){
                 //redirect user to program page after saving
                 header('location: lease.php');
             }
     }
 
     $page_title = 'Admin | Add Lease';
-    $tenants = 'active';
+    $lease = 'active';
 
     require_once '../includes/header.php';
     require_once '../includes/sidebar.php';
@@ -42,7 +50,7 @@
 <div class="home-section">
     <div class = "table-heading">
         <h3 class="table-title">Tenant/Applicant Details</h3>
-        <a href="tenants.php" class ='bx bx-caret-left'>Back</a>
+        <a href="lease.php" class ='bx bx-caret-left'>Back</a>
     </div>
     <div class ="add-tenant-container">
     <form action="add_tenants.php" method="post">
