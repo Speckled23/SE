@@ -1,0 +1,334 @@
+*{
+    padding:0;
+    margin:0;
+  }
+  
+  body {
+    background: #016259;
+    background: -webkit-linear-gradient(left, #016259, #8EF6CF);
+    background: -moz-linear-gradient(left, #016259, #8EF6CF);
+    background: linear-gradient(to right, #016259, #8EF6CF);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  ::placeholder { /* Most modern browsers support this now. */
+  color: rgba(255, 255, 255, 0.465) !important;
+  font-size: 16px;
+  }
+  
+  input {
+  color: white;
+  background-color: black;
+  }
+  
+  ::-ms-reveal {
+  filter: invert(100%);
+  }
+  input[type="checkbox" i] {
+  background-color: #7c8382;
+  }
+  
+  #tran {
+  outline: 0;
+  border: 0;
+  background: #ffffff2e;
+  border-bottom: 0px solid #e5e5e500;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 350px;
+  }
+  .px-6 {
+  padding: 0.6rem 5rem;
+  }
+  .no-underline {
+    text-decoration: none;
+  }
+  
+  .btncol {
+    background-color: #11554e;
+    border: none;
+    border-radius: 1rem;
+  }
+  
+  .cardd {
+    border-radius: 4rem;
+    background-color:rgb(238 238 238 / 16%);
+  }
+  
+  .type-effect {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+  }
+  
+  .type-effect > .text {
+    max-width: 0;
+    animation: typing 3s steps(var(--characters)) infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:20px;
+  }
+  
+  .type-effect:after {
+    content: " |";
+    animation: blink 1s infinite;
+    animation-timing-function: step-end;
+    font-size:20px;
+  }
+  
+  @keyframes typing {
+    75%,
+    100% {
+      max-width: calc(var(--characters) * 1ch);
+    }
+  }
+  
+  @keyframes blink {
+    0%,
+    75%,
+    100% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0;
+    }
+  }
+  
+  #login-form {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+#login-form {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+  *{
+      font-family:'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 14px;
+  }
+  
+  body{
+      width: 100%;
+      height: 100%;
+      background-color: #f5f5f5;
+  }
+
+  .divider{
+    border: 0;
+    border-bottom: 2px  solid rgb(70, 70, 70);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.side-bar{
+    position: fixed;
+    width: 250px;
+    height: calc(100vh);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.side-bar .logo-details i{
+    font-size: 28px;
+    font-weight: 800;
+    color: #176F73;
+    min-width: 235px;
+    text-align: right;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.side-bar .nav-links{
+    height: calc(100vh);
+}
+
+.side-bar .nav-links li{
+    position: relative;
+    list-style: none;
+    height: 35px;
+    width: 100%;
+}
+
+.side-bar .nav-links li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.side-bar .nav-links li i{
+    min-width: 60px;
+    text-align: center;
+    font-size: 18px;
+    color: #176F73;
+}
+
+.side-bar .nav-links li a .links-name{
+    color: #176F73;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+
+#logout-link{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.home-section{
+    position: relative;
+    width: calc(100% - 250px);
+    left: 250px;
+}
+
+.home-section nav{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #fff;
+    align-items: center;
+    position: fixed;
+    width: calc(100% - 250px);
+    left: 250px;
+    z-index: 999;
+    box-shadow: 0 1px 1px;
+    padding: 0 20px;
+    background-image: url('Rental.jpg');
+}
+
+
+.home-section nav .profile-details{
+    display:flex;
+    align-items: center;
+    padding-left: 980px;
+    height: 50px;
+    min-width: 170px;
+    color: #fff;
+    left: 1000px;
+}
+
+.home-section nav .profile-details i{
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+.home-section .home-content{
+    position: relative;
+}
+
+.home-content .overview-boxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    padding-top: 25px;
+}
+
+.home-content .dash{
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    padding-top: 90px;
+}
+
+.dash .greet{
+    display: block;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.home-content .greet .dashh {
+    font-size: 28px;
+    font-weight:bolder;
+    color: #176F73;
+    padding-right: 80px;
+}
+
+.home-content .greet .greetings {
+    font-size: 16px;
+    font-weight:18px;
+    color: #176F73;
+    padding-right: 80px;
+}
+.overview-boxes .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 4 - 15px);
+    background: #fff;
+    padding: 15px 14px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.overview-boxes .box1{
+    display: flex;
+    justify-content:left;
+    padding-top: 5px;
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    padding: 10px 7px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.overview-boxes .box2 .box-topic {
+    color: #fff;
+    padding-left: 20px;
+}
+
+.overview-boxes .box-topic{
+    font-size: 16px;
+    font-weight:bold;
+    color: #176F73;
+    padding-right: 80px;
+
+}
+
+.home-content .box .number{
+    font-size: 30px;
+    margin-top: 5px;
+    font-weight: bolder;
+    color: #176F73;
+    padding-left: 190px;
+    display: inline-block;
+}
+
+.home-content .box .cart{
+    font-size: 27px;
+    display: inline-block;
+    padding-right: 80px;
+    height: 50px;
+    width: 50px;
+    line-height: 40px;
+    text-align: center;
+    color: #176F73;
+    border-radius: 12px;
+    margin: -15px 0 0 6px;
+}
+

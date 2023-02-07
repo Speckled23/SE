@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2023 at 05:01 PM
+-- Generation Time: Jan 25, 2023 at 06:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -116,6 +116,7 @@ CREATE TABLE `tenants` (
   `prev_address` varchar(100) NOT NULL,
   `city` varchar(30) NOT NULL,
   `state` varchar(30) NOT NULL,
+  `zip` int(15) NOT NULL,
   `gender` varchar(30) NOT NULL,
   `birthdate` date NOT NULL,
   `pet_num` int(100) NOT NULL,
@@ -132,6 +133,13 @@ CREATE TABLE `tenants` (
   `emergency_num` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tenants`
+--
+
+INSERT INTO `tenants` (`id`, `firstname`, `lastname`, `email`, `contact_num`, `status`, `household_type`, `prev_address`, `city`, `state`, `zip`, `gender`, `birthdate`, `pet_num`, `pet_type`, `smoking`, `vehicles`, `occupants`, `pri`, `co_fname`, `co_lname`, `co_email`, `co_num`, `emergency_fname`, `emergency_num`) VALUES
+(1, 'kent', 'sultan', 'kentsultan@gmail.com', 912345678, 'single', 'single', 'doon dito street', 'awit', 'zambo', 0, 'male', '2023-01-02', 0, '0', 1, 'no', 'me', 0, 'NA', 'NA', 'NA', 0, 'NA', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -141,17 +149,19 @@ CREATE TABLE `tenants` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `role` varchar(100) NOT NULL
+  `role` char(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`, `username`, `role`) VALUES
-(1, 'Kent Sultan', 'admin', 'admin', 'admin');
+INSERT INTO `user` (`id`, `name`, `role`, `username`, `password`) VALUES
+(1, 'Orenda Admin', 'admin', 'kent', 'kent'),
+(2, 'Orenda tenant', 'tenant', 'jenny', 'jenny'),
+(3, 'Orenda Landlord', 'landlord', 'avon', 'avon');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +217,7 @@ ALTER TABLE `landlord`
 -- AUTO_INCREMENT for table `lease`
 --
 ALTER TABLE `lease`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `properties`
@@ -225,13 +235,13 @@ ALTER TABLE `property_units`
 -- AUTO_INCREMENT for table `tenants`
 --
 ALTER TABLE `tenants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
