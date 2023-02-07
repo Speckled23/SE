@@ -5,11 +5,11 @@ class Tenants{
     //Attributes
 
     public $id;
-    public $frstname;
+    public $firstname;
     public $lastname;
     public $email;
     public $contact_num;
-    public $status;
+    public $rel_status;
     public $household_type;
     public $prev_address;
     public $city;
@@ -22,7 +22,6 @@ class Tenants{
     public $pet_type;
     public $smoking;
     public $vehicles;
-    public $occupants;
     public $pri;
     public $co_fname;
     public $co_lname;
@@ -40,11 +39,11 @@ class Tenants{
 
     //Methods
     function add(){
-        $sql = "INSERT INTO tenants ( firstname, lastname, email, contact_num, status, household_type, prev_address, city,
-         country, zip, gender, birthdate, pet, pet_num, pet_type, smoking, vehicles, occupants, pri, co_fname, co_lname, co_email, 
-         co_num, emergency_fname, emergency_num ) VALUES 
-         ( :firstname, :lastname, :email, :contact_num, :status, :household_type, :prev_address, :city,
-         :country, :zip, :gender, :birthdate, :pet, :pet_num, :pet_type, :smoking, :vehicles, :occupants, :pri, :co_fname, :co_lname, :co_email, 
+        $sql = " INSERT INTO tenants ( firstname, lastname, email, contact_num, rel_status, household_type, prev_address, city,
+         country, zip, gender, birthdate, pet, pet_num, pet_type, smoking, vehicles, pri, co_fname, co_lname, co_email, 
+         co_num, emergency_fname, emergency_num )
+         VALUES ( :firstname, :lastname, :email, :contact_num, :rel_status, :household_type, :prev_address, :city,
+         :country, :zip, :gender, :birthdate, :pet, :pet_num, :pet_type, :smoking, :vehicles, :pri, :co_fname, :co_lname, :co_email, 
          :co_num, :emergency_fname, :emergency_num );";
 
         $query=$this->db->connect()->prepare($sql);
@@ -52,7 +51,7 @@ class Tenants{
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':email', $this->email);
         $query->bindParam(':contact_num', $this->contact_num);
-        $query->bindParam(':status', $this->status);
+        $query->bindParam(':rel_status', $this->rel_status);
         $query->bindParam(':household_type', $this->household_type);
         $query->bindParam(':prev_address', $this->prev_address);
         $query->bindParam(':city', $this->city);
@@ -64,7 +63,7 @@ class Tenants{
         $query->bindParam(':pet_type', $this->pet_type);
         $query->bindParam(':smoking', $this->smoking);
         $query->bindParam(':vehicles', $this->vehicles);
-        $query->bindParam(':occupants', $this->occupants);
+        //$query->bindParam(':occupants', $this->occupants);
         $query->bindParam(':pri', $this->pri);
         $query->bindParam(':co_fname', $this->co_fname);
         $query->bindParam(':co_lname', $this->co_lname);
@@ -78,11 +77,11 @@ class Tenants{
         }
         else{
             return false;
-        }	
+        }
     }
 
     function edit(){
-        $sql = "UPDATE tenants SET firstname = :firstname, lastname =:lastname, email =:email, contact_num =:contact_num, status =:status, household_type =:household_type, prev_address =:prev_address, city =:city,
+        $sql = "UPDATE tenants SET firstname = :firstname, lastname =:lastname, email =:email, contact_num =:contact_num, rel_status =:rel_status, household_type =:household_type, prev_address =:prev_address, city =:city,
         country =:country, zip =:zip, gender =:gender, birthdate =:birthdate,  pet =:pet,, pet_num =:pet_num, pet_type =:pet_type, smoking =:smoking, vehicles =:vehicles, occupants =:occupants, pri =:pri, co_fname =:co_fname, co_lname =:co_lname, co_email =:co_email, 
         co_num =:co_num, emergency_fname =:emergency_fname, emergency_num =:emergency_num WHERE id = :id;";
 
@@ -91,7 +90,7 @@ class Tenants{
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':email', $this->email);
         $query->bindParam(':contact_num', $this->contact_num);
-        $query->bindParam(':status', $this->status);
+        $query->bindParam(':rel_status', $this->rel_status);
         $query->bindParam(':household_type', $this->household_type);
         $query->bindParam(':prev_address', $this->prev_address);
         $query->bindParam(':city', $this->city);
@@ -113,14 +112,13 @@ class Tenants{
         $query->bindParam(':emergency_num', $this->emergency_num);
 
         $query->bindParam(':id', $this->id);
-    
-        
+
         if($query->execute()){
             return true;
         }
         else{
             return false;
-        }	
+        }
     }
 
     function delete($record_id){

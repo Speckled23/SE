@@ -7,7 +7,7 @@
           </a>
         </li>
         <li>
-          <a href="../tenantS/tenantS.php" >
+          <a href="../tenants/tenants.php" >
             <i class='bx bx-user box' title="Tenant"></i>
             <span class="links_name">Tenants</span>
           </a>
@@ -80,7 +80,7 @@
         </li>
 
         <li class="log_out">
-          <a href="../login/login.php">
+          <a href="../../index.php">
             <i class='bx bx-log-out box' title="Logout"></i>
             <span class="links_name">Log out</span>
           </a>

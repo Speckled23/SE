@@ -49,9 +49,9 @@
     ?>
     <tr>
       <td><?php echo $i ?></td>
-      <td><?php echo $value['first_name'].''. $value['last_name']?></td>
+      <td><?php echo $value['firstname'].''. $value['lastname']?></td>
       <td><?php echo $value['email'] ?></td>
-      <td><?php echo $value['contact_no'] ?></td>
+      <td><?php echo $value['contact_num'] ?></td>
       <td><?php echo $value['lease'] ?></td>
       <?php if ($_SESSION['user_type'] == 'admin') { ?>
         <td>
