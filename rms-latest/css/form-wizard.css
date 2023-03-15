@@ -1,0 +1,85 @@
+/* Style the form */
+#regForm {
+  background-color: #ffffff;
+  padding: 15px;
+  width: 100%;
+  min-width: 300px;
+  border-radius: 1em;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.req.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  height: 42px;
+  width: 290px;
+  background: #176f73;
+  border: none;
+  opacity: 0.5;
+  color: white;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+  color: white;
+  font-weight: 700;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  opacity: 1;
+  background-color: #176f73;
+}
+
+.mar {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 765px){
+  textarea#property_description {
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+}
+@media (min-width: 425px){
+  .d-flex.sm {
+    font-size: 0.8em;
+  }
+}
+
+textarea#features_description {
+  height: 150px;
+}
+.checkmark {
+  width: 10px;
+}
+.feature {
+  width: 100px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+

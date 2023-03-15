@@ -1,0 +1,219 @@
+#sign-up{
+  background: rgb(8,76,78);
+  background: linear-gradient(111deg, rgba(8,76,78,1) 11%, rgba(13,91,94,1) 22%, rgba(23,111,115,1) 38%, rgba(16,115,110,1) 57%, rgba(45,145,119,1) 73%, rgba(80,191,148,1) 89%, rgba(101,228,174,1) 100%);
+  height: 100vh;  
+}
+  .main-container{
+    margin-top: 72px;
+  }
+  div.sign-in{
+    max-width: 500px;
+    padding-top: 1.5rem;
+    background-color: rgb(255 255 255 / 20%);
+    box-shadow: 0 1px 1px 1px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+  }
+  
+  .password-container {
+    position: relative;
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  
+  form .btn-continue{
+    max-width: 100%;
+    background-color: #106b6f;
+  }
+  hr:not([size]) {
+    height: 0.5px;
+  }
+  .col-12.pt-2.mb-3 {
+    text-align: center;
+  }
+  .btn.btn-lg.btn-success.background-color-green.btn-continue.btn-font {
+    margin: 0 auto;
+    padding: 0.5rem 4rem;
+    border-radius: 18.299999999999997rem;
+  }
+  span.or{
+    top: -20px;
+    position: relative;
+    background-color: white;
+  }
+  
+  .btn-font{
+    font-size: 18px;
+    font-weight: bolder;
+  }
+  
+  .shortcut{
+    display: none;
+  }
+  
+  .fa-envelope-open-text{
+    font-size: 3rem;
+  }
+  .form-check-input:checked{
+    background-color: #107869 !important;
+    border: 0;
+  }
+  .form-check-input:focus, .label::after, label.form-check-label:focus, .form-check-input::after, .form-check-input:not(:disabled):not(.disabled):active:focus {
+    
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.1rem 107869 !important;
+  }
+  
+  .btn-apply:hover{
+    background-color: #0f5a5e  !important;
+  }
+  
+  .btn-login:hover{
+    background-color: #0f5a5e  !important;
+  }
+  
+  .btn-continue:hover{
+    background-color: #0f5a5e !important;
+  }
+  
+  a.green:hover{
+    color: #0f5a5e  !important;
+  }
+  form .btn-continue {
+      max-width: 100%;
+      background-color: #087058;
+      border-color: #107869;
+  }
+  @media (min-width: 576px) {
+    .shortcut{
+        display: block;
+    }
+    div.separator{
+        width: 2rem;
+    }
+    p.continue{
+        margin-top: 30px;
+    }
+    a.btn-continue{
+        max-width: 500px;
+    }
+    .card-container{
+        margin-top: 25px;
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+    .btn-continue{
+        border-radius: 20px;
+    }
+  
+    #sign-up header nav {
+        border-bottom: 0;
+    }
+  
+    div.sign-up {
+        border: -170px solid lightgray;
+        border-radius: 20px;
+    }
+  
+    div.sign-in {
+        border-radius: 30px;
+    }
+  }
+  .form-check .form-check-input {
+    float: left;
+    margin-left: 0.9000000000000004rem;
+  }
+  
+  .form-check.form-check-inline.me-0 {
+    text-align: center;
+  }
+  a.green.text-decoration-none.text-center {
+    display: block;
+  }
+  
+  .green {
+    color: white;
+    font-weight: 500;
+  }
+  
+  .log-control {
+    display: block;
+    width: 100%;
+    padding: 1.0999999999999996rem 1.1000000000000014rem;
+    font-size: 14px;
+    font-weight: 400;
+    /* line-height: 0; */
+    background-color: rgba(255,255,255,0.30);
+    background-clip: padding-box;
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 0.9rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .container-fluid.d-flex.align-items-md-center.justify-content-md-center {
+    padding-top: 7rem;
+  }
+  
+  .btn.btn-lg.btn-success.background-color-green.btn-continue.btn-font {
+    margin: 0 auto;
+    padding: 0.9rem 3rem;
+    border-radius: 18px;
+    width: 20rem;
+  }
+  .form-check-input {
+    border:0;
+  }
+  
+  .p-md-4 {
+      padding: 1.5rem!important;
+  }
+  
+  .log-control::-webkit-input-placeholder {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  .log-control:-moz-placeholder {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  .log-control::-moz-placeholder {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  .log-control:-ms-input-placeholder {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  .form-check .form-check-label {
+    min-height: 18px;
+    display: block;
+    margin-left: -0.1rem;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    float: left;
+    color: whitesmoke;
+  }
+  
+  
+  div.fp{
+    max-width: 500px;
+    padding-top: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid;
+    color: #176F73;
+  }
+  .ff {
+    color: #176F73;
+  }
+  #fp {
+    background-color: rgb(253, 253, 253);
+  }
+  
